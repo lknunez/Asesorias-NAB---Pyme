@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ocultar elementos decorativos SVG en el footer */
+footer svg {
+  display: none;
+}
