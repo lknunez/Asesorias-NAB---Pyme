@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { 
-  CheckCircle, 
-  FileText, 
-  Calculator, 
-  Users, 
-  Shield, 
-  DollarSign, 
-  MapPin, 
-  Phone, 
-  Mail, 
+import {
+  CheckCircle,
+  FileText,
+  Calculator,
+  Users,
+  Shield,
+  DollarSign,
+  MapPin,
+  Phone,
+  Mail,
   MessageCircle,
   Star,
   ArrowRight,
@@ -62,11 +62,11 @@ function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-  // Aquí se realiza la conexión al backend
-  // URL del backend: usa /api/send en desarrollo y la URL completa en producción
-  // En cPanel la App se expone por el dominio (proxy), por eso en producción no se debe incluir el puerto
-  const baseUrl = import.meta.env.PROD ? 'https://asesoriasnab.cl' : '/api';
-  const response = await fetch(`${baseUrl}/send`, {
+      // Aquí se realiza la conexión al backend
+      // URL del backend: usa /api/send en desarrollo y la URL completa en producción
+      // En cPanel la App se expone por el dominio (proxy), por eso en producción no se debe incluir el puerto
+      const baseUrl = import.meta.env.PROD ? 'https://asesoriasnab.cl' : 'http://localhost:4000';
+      const response = await fetch(`${baseUrl}/send`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -85,6 +85,7 @@ function App() {
         alert('Hubo un error al enviar el formulario. Intenta nuevamente.');
       }
     } catch (error) {
+      console.error(error);
       alert('No se pudo conectar con el servidor.');
     }
   };
@@ -132,13 +133,13 @@ function App() {
               <span className="font-semibold text-white block mt-2">Nosotros te guiamos paso a paso.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button 
+              <button
                 onClick={scrollToForm}
                 className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2"
               >
                 Quiero comenzar mi negocio <ArrowRight className="w-5 h-5" />
               </button>
-              <button 
+              <button
                 onClick={handleWhatsApp}
                 className="border-2 border-white hover:bg-white hover:text-blue-700 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 flex items-center gap-2"
               >
@@ -172,11 +173,11 @@ function App() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Kit Emprendedor NAB</h3>
               </div>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Formaliza tu empresa con todo lo necesario: escritura, inicio de actividades en el SII, 
-                verificación de giro y habilitación para emitir facturas. Si no tienes dirección comercial, 
+                Formaliza tu empresa con todo lo necesario: escritura, inicio de actividades en el SII,
+                verificación de giro y habilitación para emitir facturas. Si no tienes dirección comercial,
                 puedes usar la tuya o contratar una oficina virtual anual.
               </p>
-              <button 
+              <button
                 onClick={scrollToForm}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors duration-300"
               >
@@ -193,10 +194,10 @@ function App() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Plan IVA Simplificado</h3>
               </div>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Contabilidad mensual para empresas ya constituidas: cálculo y declaración de IVA, 
+                Contabilidad mensual para empresas ya constituidas: cálculo y declaración de IVA,
                 emisión de hasta 15 facturas mensuales, y reportes claros. Las boletas las emite el cliente.
               </p>
-              <button 
+              <button
                 onClick={scrollToForm}
                 className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors duration-300"
               >
@@ -213,10 +214,10 @@ function App() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Pack Gestión Laboral Total</h3>
               </div>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Ideal para microempresas con pocos trabajadores. Incluye contratos, liquidaciones de sueldo, 
+                Ideal para microempresas con pocos trabajadores. Incluye contratos, liquidaciones de sueldo,
                 Previred, finiquitos y asesoría básica en RRHH.
               </p>
-              <button 
+              <button
                 onClick={scrollToForm}
                 className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold transition-colors duration-300"
               >
@@ -285,13 +286,13 @@ function App() {
             {/* Daniela */}
             <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
               <div className="flex justify-center mb-6">
-                {[1,2,3,4,5].map((star) => (
+                {[1, 2, 3, 4, 5].map((star) => (
                   <Star key={star} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
               <blockquote className="text-gray-700 mb-6 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"> {/* expandir ventana al posicionar mouse */}
-                "Tenía todo listo para vender mis productos naturales, pero no sabía cómo formalizar mi negocio. 
-                Me hablaron de NAB y en menos de una semana ya tenía mi empresa registrada, con dirección tributaria 
+                "Tenía todo listo para vender mis productos naturales, pero no sabía cómo formalizar mi negocio.
+                Me hablaron de NAB y en menos de una semana ya tenía mi empresa registrada, con dirección tributaria
                 y lista para emitir facturas."
               </blockquote>
               <div className="flex items-center gap-4">
@@ -308,13 +309,13 @@ function App() {
             {/* Marisol */}
             <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
               <div className="flex justify-center mb-6">
-                {[1,2,3,4,5].map((star) => (
+                {[1, 2, 3, 4, 5].map((star) => (
                   <Star key={star} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
               <blockquote className="text-gray-700 mb-6 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"> {/* expandir ventana al posicionar mouse */}
-                "Formar mi empresa era un paso importante y no sabía bien por dónde partir, hasta que conocí Asesorías NAB. 
-                Una empresa confiable, rápida y muy cercana. Siempre atentos y disponibles cuando los he necesitado. 
+                "Formar mi empresa era un paso importante y no sabía bien por dónde partir, hasta que conocí Asesorías NAB.
+                Una empresa confiable, rápida y muy cercana. Siempre atentos y disponibles cuando los he necesitado.
                 Su acompañamiento fue clave para dar este paso con tranquilidad.
                 Gracias a ellos, hoy Alemaral Terapias es una empresa formalizada que camina con bases firmes.
                 Los recomiendo con total confianza si estás buscando formalizar tu empresa o tu emprendimiento."
@@ -332,13 +333,13 @@ function App() {
             {/* Luis */}
             <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
               <div className="flex justify-center mb-6">
-                {[1,2,3,4,5].map((star) => (
+                {[1, 2, 3, 4, 5].map((star) => (
                   <Star key={star} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <blockquote className="text-gray-700 mb-6 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"> {/* expandir ventana al posicionar mouse */} 
-                "Ya tenía mi empresa funcionando, pero cada mes era un caos con el IVA. Me contacté con NAB y ahora 
-                ellos se encargan de todo. Me envían los reportes claros, me ayudan con las facturas, y yo puedo 
+              <blockquote className="text-gray-700 mb-6 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"> {/* expandir ventana al posicionar mouse */}
+                "Ya tenía mi empresa funcionando, pero cada mes era un caos con el IVA. Me contacté con NAB y ahora
+                ellos se encargan de todo. Me envían los reportes claros, me ayudan con las facturas, y yo puedo
                 enfocarme en atender a mis clientes."
               </blockquote>
               <div className="flex items-center gap-4">
@@ -480,7 +481,7 @@ function App() {
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
               Completa el formulario o habla con un asesor por WhatsApp. ¡Estamos aquí para ayudarte!
             </p>
-            <button 
+            <button
               onClick={scrollToForm}
               className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 px-12 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
             >
