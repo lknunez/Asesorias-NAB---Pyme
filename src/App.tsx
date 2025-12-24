@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   CheckCircle, 
   FileText, 
@@ -14,11 +14,8 @@ import {
   ArrowRight,
   Heart,
   Headphones,
-  Instagram,
-  Linkedin,
-  Twitter,
 } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 /**
  * Conexión con el Backend:
@@ -65,7 +62,7 @@ function App() {
   // Aquí se realiza la conexión al backend
   // URL del backend: usa /api/send en desarrollo y la URL completa en producción
   // En cPanel la App se expone por el dominio (proxy), por eso en producción no se debe incluir el puerto
-  const baseUrl = import.meta.env.PROD ? 'https://asesoriasnab.cl' : '/api';
+  const baseUrl = import.meta.env.PROD ? 'https://asesoriasnab.cl' : 'http://localhost:4000';
   const response = await fetch(`${baseUrl}/send`, {
         method: 'POST',
         headers: {
@@ -550,7 +547,7 @@ function App() {
                   className="text-gray-300 hover:text-white transition-colors duration-300"
                   aria-label="Síguenos en Instagram"
                 >
-                  <Instagram className="w-6 h-6" />
+                  <FaInstagram className="w-6 h-6" />
                 </a>
                 <a
                   href="https://www.linkedin.com/company/asesorias-integrales-nab/"
@@ -559,7 +556,7 @@ function App() {
                   className="text-gray-300 hover:text-white transition-colors duration-300"
                   aria-label="Síguenos en LinkedIn"
                 >
-                  <Linkedin className="w-6 h-6" />
+                  <FaLinkedin className="w-6 h-6" />
                 </a>
 
                 {/* Ejemplo oculto: botón para 'X' (antes Twitter).
@@ -572,14 +569,13 @@ function App() {
                 {/* className: 'hidden' para mantener oculto; quitar para mostrar */}
                 {/* aria-label: etiqueta accesible descriptiva */}
                 <a
-                  href="LINK_AQUI"
+                  href="https://twitter.com/asesoriasnab"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors duration-300 hidden"
-                  aria-label="Red social ejemplo: X"
+                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                  aria-label="Síguenos en X (Twitter)"
                 >
-                  {/* Icono de ejemplo: usar <Twitter /> importado desde 'lucide-react' */}
-                  <Twitter className="w-6 h-6" />
+                  <FaTwitter className="w-6 h-6" />
                 </a>
               </div>
             </div>
