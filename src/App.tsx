@@ -99,15 +99,26 @@ function App() {
       {/* Header */}
       <header className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
         <div className="container mx-auto px-6 py-4">
-          {/* Botones de navegación */}
+          {/* BOTONES DE NAVEGACIÓN */}
           <div className="flex justify-end gap-3 mb-4">
+
+            <a
+              href=" https://asesoriasnab.cl/remuneraciones/"
+              target="_self"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-all duration-300"
+            >
+              Ingreso Clientes
+              <ArrowRight className='w-4 h-4' />
+            </a>
+
             <a
               href="https://asesoriasnab.cl/corporativa"
               target="_self"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-all duration-300"
             >
-              Ir a Corporativo
+              Ir a Corporativa
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
